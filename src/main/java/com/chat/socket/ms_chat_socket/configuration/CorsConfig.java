@@ -13,10 +13,10 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // Todos los endpoints
-                        .allowedOrigins("*") // Permitir todos los orígenes
+                        .allowedOrigins("http://localhost:4200") // Permitir todos los orígenes
                         .allowedMethods("*") // Todos los métodos HTTP (GET, POST, etc)
                         .allowedHeaders("*") // Todos los headers
-                        .allowCredentials(false); // Desactiva cookies/sesiones si no son necesarias
+                        .allowCredentials(true); // Desactiva cookies/sesiones si no son necesarias
             }
         };
     }
