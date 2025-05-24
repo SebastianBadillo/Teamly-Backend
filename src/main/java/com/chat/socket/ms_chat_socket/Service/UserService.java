@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface UserService {
     List<UserDto> getAllUsers();
+
+    UserDto assignRoleToUser(Long userId, String roleName);
 }

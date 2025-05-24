@@ -6,7 +6,6 @@ import com.chat.socket.ms_chat_socket.Dto.RegisterRequest;
 import com.chat.socket.ms_chat_socket.Entity.User;
 import com.chat.socket.ms_chat_socket.Repository.UserRepository;
 import com.chat.socket.ms_chat_socket.Service.AuthService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
