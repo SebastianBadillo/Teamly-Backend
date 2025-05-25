@@ -7,7 +7,6 @@ import com.chat.socket.ms_chat_socket.Mappers.UserMapper;
 import com.chat.socket.ms_chat_socket.Repository.RoleRepository;
 import com.chat.socket.ms_chat_socket.Repository.UserRepository;
 import com.chat.socket.ms_chat_socket.Service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
