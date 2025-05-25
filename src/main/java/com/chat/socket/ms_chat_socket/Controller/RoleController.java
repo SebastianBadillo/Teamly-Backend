@@ -35,10 +35,11 @@ public class RoleController {
     }
 
     @GetMapping("/{name}")
-    public ResponseEntity<Role> getRoleByName(@PathVariable String name){
+    public ResponseEntity<Optional<Role>> getRoleByName(@PathVariable String name){
         Optional<Role> role = roleService.findByName(name);
-        return role.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        if (role == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(role);
     }
-
 }
