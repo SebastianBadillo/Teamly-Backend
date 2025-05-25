@@ -59,6 +59,30 @@ CREATE TABLE audit_logs (
     timestamp TIMESTAMP DEFAULT NOW()
 );
 
+CREATE TABLE tasks (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    priority VARCHAR(20),
+    deadline TIMESTAMP,
+    completed BOOLEAN DEFAULT FALSE,
+    assigned_user_id INTEGER REFERENCES users(id)
+);
+CREATE TABLE calendar_events (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    location VARCHAR(255),
+    start_date_time TIMESTAMP,
+    end_date_time TIMESTAMP
+);
+
+CREATE TABLE calendar_event_participants (
+    event_id INTEGER REFERENCES calendar_events(id) ON DELETE CASCADE,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    PRIMARY KEY (event_id, user_id)
+);
+
 
 --ALTER TABLE users
 --ADD COLUMN role_id INTEGER REFERENCES roles(id);
