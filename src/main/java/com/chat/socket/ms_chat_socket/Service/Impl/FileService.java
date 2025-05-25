@@ -1,5 +1,6 @@
 package com.chat.socket.ms_chat_socket.Service.Impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,16 @@ import jakarta.transaction.Transactional;
 
 @Service
 @Transactional
-public class FileService implements IFileService {
+public class    FileService implements IFileService {
     
     @Autowired private FilesRepository filesRepository;
 
     @Override
     public Files createFile(FileCreateDTO file) {
         return filesRepository.save(convertDTOtoEntity(file));
+    }
+    public List<Files> findAll(){
+        return filesRepository.findAll();
     }
 
     @Override

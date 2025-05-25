@@ -9,6 +9,8 @@ import com.chat.socket.ms_chat_socket.Service.AuthService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
@@ -39,13 +41,13 @@ public class AuthServiceImpl implements AuthService {
         if(!userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("El correo no está registrado");
         }
-        User user = userRepository.findByEmail(request.getEmail());
+        Optional<User> user = userRepository.findByEmail(request.getEmail());
 
-        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+        if (!passwordEncoder.matches(request.getPassword(), user.get().getPassword())) {
             throw new RuntimeException("Contraseña incorrecta");
         }
 
-        return new AuthResponse("Inicio de sesión exitoso", user.getEmail(), user.getFirstName(), user.getId());
+        return new AuthResponse("Inicio de sesión exitoso", user.get().getEmail(), user.get().getFirstName(), user.get().getId());
     }
     @Override
     public Boolean isEmailRegistered(String email) {

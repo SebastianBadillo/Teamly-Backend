@@ -34,12 +34,12 @@ public class RoleController {
         return ResponseEntity.ok(created);
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<Optional<Role>> getRoleByName(@PathVariable String name){
-        Optional<Role> role = roleService.findByName(name);
-        if (role == null){
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(role);
-    }
+//    @GetMapping("/{name}")
+//    public ResponseEntity<Optional<Role>> getRoleByName(@PathVariable String name){
+//        Optional<Role> role = roleService.findByName(name);
+//        if (role == null){
+//            return ResponseEntity.notFound().build();
+//        }
+//        return ResponseEntity.ok(role);
+//    }
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -85,6 +86,18 @@ public class FilesController {
                     .body(fileBytes);
         } catch (IOException e) {
             return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+    @GetMapping("")
+    public ResponseEntity<List<Files>> getAllFiles() {
+        try {
+            List<Files> files = fileService.findAll();
+            if (files.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            }
+            return ResponseEntity.ok(files);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }

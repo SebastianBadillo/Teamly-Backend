@@ -1,11 +1,14 @@
 package com.chat.socket.ms_chat_socket.Entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Table(name = "calendar_events")
+@Data
 public class CalendarEvent {
 
     @Id

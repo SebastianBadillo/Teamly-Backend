@@ -23,7 +23,7 @@ public class RoleService {
         return roleRepository.save(role);
     }
 
-    public User findByName(String name) {
-        return roleRepository.findByName(name);
-    }
+//    public User findByName(String name) {
+//        return roleRepository.findByName(name);
+//    }
 }
