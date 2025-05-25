@@ -41,13 +41,13 @@ public class AuthServiceImpl implements AuthService {
         if(!userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("El correo no está registrado");
         }
-        Optional<User> user = userRepository.findByEmail(request.getEmail());
+        User user = userRepository.findByEmail(request.getEmail());
 
-        if (!passwordEncoder.matches(request.getPassword(), user.get().getPassword())) {
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw new RuntimeException("Contraseña incorrecta");
         }
 
-        return new AuthResponse("Inicio de sesión exitoso", user.get().getEmail(), user.get().getFirstName(), user.get().getId());
+        return new AuthResponse("Inicio de sesión exitoso", user.getEmail(), user.getFirstName(), user.getId());
     }
     @Override
     public Boolean isEmailRegistered(String email) {
