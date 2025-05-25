@@ -1,12 +1,12 @@
 package com.chat.socket.ms_chat_socket.Service.Impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chat.socket.ms_chat_socket.Entity.Role;
-import com.chat.socket.ms_chat_socket.Entity.User;
 import com.chat.socket.ms_chat_socket.Repository.RoleRepository;
 
 @Service
@@ -23,7 +23,7 @@ public class RoleService {
         return roleRepository.save(role);
     }
 
-    public User findByName(String name) {
+    public Optional<Role> findByName(String name) {
         return roleRepository.findByName(name);
     }
 }
