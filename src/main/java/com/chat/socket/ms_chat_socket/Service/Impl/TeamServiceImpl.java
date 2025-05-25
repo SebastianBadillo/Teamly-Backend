@@ -3,6 +3,7 @@ package com.chat.socket.ms_chat_socket.Service.Impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.chat.socket.ms_chat_socket.Dto.TeamCreateDto;
 import com.chat.socket.ms_chat_socket.Entity.Team;
@@ -10,6 +11,7 @@ import com.chat.socket.ms_chat_socket.Repository.TeamRepository;
 import com.chat.socket.ms_chat_socket.Repository.UserRepository;
 import com.chat.socket.ms_chat_socket.Service.TeamService;
 
+@Service
 public class TeamServiceImpl implements TeamService {
 
     @Autowired
